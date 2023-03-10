@@ -1,7 +1,8 @@
+import Menu from "../menu/menu"
 const Home=()=>{
     return(
         <div className="home">
-            <h1>Home page nhé</h1>
+            <Menu/>
         </div>
     )
 }
