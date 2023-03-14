@@ -1,0 +1,5 @@
+#items:hover{
+    border: 1px solid white;
+    background-color: white;
+    box-shadow: 1px 1px 5px 5px;
+}

@@ -1,4 +1,5 @@
 import Menu from "../menu/menu"
+import HeaderIcon from "./listicon";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import slide1 from "../../image.modue/Excited-Girl-Holding-Shopping-Bag-Transparent-PNG.png"
 import slide2 from "../../image.modue/Attractive-Model-Man-PNG-Picture.png"
@@ -56,10 +57,11 @@ const Home = () => {
                                 <img style={{ height: "400px", objectFit: "cover" }} src={slide4} alt="Third slide" />
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
+            <HeaderIcon />
         </div>
     )
 }
