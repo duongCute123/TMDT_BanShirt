@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom"
+import { Link, Route } from "react-router-dom"
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import logo from "../../image.modue/logo.c9a5149df70e30a9c7cd.png"
+import { Button } from "@mui/material";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const Menu = () => (
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <img width={"40px"} src={logo} alt="" />
@@ -20,7 +23,14 @@ const Menu = () => (
                     <Link class="nav-link " to={"/"}>Conatct</Link>
                 </li>
             </ul>
-            
+            <div className="store">
+                <Button  startIcon={<ProductionQuantityLimitsIcon />}>ShopingCart</Button>
+            </div>
+            <div className="login">
+                <Button startIcon={<AccountCircleIcon />}>
+                    SingIn
+                </Button>
+            </div>
         </div>
     </nav>
 )
