@@ -5,24 +5,26 @@ import Register from "../auth/register";
 import AddProduct from "../product/addproduct";
 import Editpage from "../product/editproduct";
 import Home from "../home/homepage";
+import ListIcon from "../home/listicon";
 import DetailPage from "../product/detailproduct";
-import { BrowserRouter,Route,Routes,NavLink,Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes, NavLink, Link } from "react-router-dom";
 import { useEffect } from "react";
-const Routess=()=>{
-    return(
+import HeaderIcon from "../home/listicon";
+const Routess = () => {
+    return (
         <div className="router">
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" exact element={<Home/>}/>
-                    <Route path="/addproduct"  element={<AddProduct/>}/>
-                    <Route path="/editproduct/:id"  element={<Editpage/>}/>
-                    <Route path="/detailpage/:id"  element={<DetailPage/>}/>
-                    <Route path="/login"  element={<Login/>}/>
-                    <Route path="/register"  element={<Register/>}/>
-
+                    <Route path="/" exact element={<Home />} />
+                    <Route path="/addproduct" element={<AddProduct />} />
+                    <Route path="/editproduct/:id" element={<Editpage />} />
+                    <Route path="/detailpage/:id" element={<DetailPage />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/list" element={<HeaderIcon />} />
                 </Routes>
             </BrowserRouter>
-        </div>  
+        </div>
     )
 }
 export default Routess
