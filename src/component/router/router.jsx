@@ -5,6 +5,7 @@ import Register from "../auth/register";
 import AddProduct from "../product/addproduct";
 import Editpage from "../product/editproduct";
 import Home from "../home/homepage";
+import Contact from "../contact/contact";
 import ListIcon from "../home/listicon";
 import DetailPage from "../product/detailproduct";
 import { BrowserRouter, Route, Routes, NavLink, Link } from "react-router-dom";
@@ -22,6 +23,7 @@ const Routess = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/list" element={<HeaderIcon />} />
+                    <Route path="/contact" element={<Contact/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
