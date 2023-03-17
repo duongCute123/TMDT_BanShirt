@@ -6,7 +6,22 @@ import slide2 from "../../image.modue/Attractive-Model-Man-PNG-Picture.png"
 import slide3 from "../../image.modue/shopping_model.png"
 import slide4 from "../../image.modue/858-8584137_fashion-forward-episodes-offers-fashion.png"
 import { Button } from "@mui/material";
+import GetProduct from "../product/listproduct";
+import SlideP from "../product/slider";
+import Slider from "react-slick";
+import LayCoast from "../product/coast";
+import LayVay from "../product/vay";
+import Footer from "../footer/footer";
+import Customer from "./customer";
+
 const Home = () => {
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
     return (
         <div className="home">
             <Menu />
@@ -62,6 +77,10 @@ const Home = () => {
                 </div>
             </div>
             <HeaderIcon />
+            <LayCoast/>
+            <GetProduct />
+            <SlideP/>
+            <Footer/>
         </div>
     )
 }
