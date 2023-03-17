@@ -1,10 +1,13 @@
 import axios from "axios";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import happy from "../../image.modue/happy-man-online-dating-via-laptop_74855-7495.avif"
+import Menu from "../menu/menu";
+import Footer from "../footer/footer";
 const Contact = () => {
     return (
         <div className="container-fluid" style={{ textAlign: "center" }}>
-            <h1>Contact Us</h1>
+            <Menu/>
+            <h1 style={{marginTop:"60px"}}>Contact Us</h1>
             <div className="row">
                 <div className="col-sm-5">
                     <img width={"370px"} src={happy} alt="happy" />
@@ -24,6 +27,7 @@ const Contact = () => {
                     </form>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }
