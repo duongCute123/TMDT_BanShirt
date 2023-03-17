@@ -13,6 +13,7 @@ import { BrowserRouter, Route, Routes, NavLink, Link } from "react-router-dom";
 import { useEffect } from "react";
 import HeaderIcon from "../home/listicon";
 import GetProduct from "../product/listproduct";
+import ItemProduct from "../product/product";
 const Routess = () => {
     return (
         <div className="router">
@@ -26,7 +27,7 @@ const Routess = () => {
                     <Route path="/register" element={<Register />} />
                     <Route path="/list" element={<HeaderIcon />} />
                     <Route path="/contact" element={<Contact/>}/>
-                    <Route path="/product" element={<GetProduct/>}/>
+                    <Route path="/product" element={<ItemProduct/>}/>
                     <Route path="/footer" element={<Footer/>}/>
                 </Routes>
             </BrowserRouter>

@@ -1,0 +1,4 @@
+.list-shirt{
+    display: flex;
+    flex-wrap: wrap;
+}
