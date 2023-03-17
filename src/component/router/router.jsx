@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Footer from "../footer/footer";
 import Login from "../auth/login";
 import Register from "../auth/register";
 import AddProduct from "../product/addproduct";
@@ -26,6 +27,7 @@ const Routess = () => {
                     <Route path="/list" element={<HeaderIcon />} />
                     <Route path="/contact" element={<Contact/>}/>
                     <Route path="/product" element={<GetProduct/>}/>
+                    <Route path="/footer" element={<Footer/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

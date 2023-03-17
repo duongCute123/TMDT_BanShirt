@@ -117,6 +117,13 @@ const LayVay = () => {
         </div>
     )
 }
+const SlideP=()=>{
+    return(
+        <div className="container-fluid">
+            
+        </div>
+    )
+}
 const GetProduct = () => {
 
     return (
