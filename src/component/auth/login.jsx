@@ -1,45 +1,78 @@
-import { useState } from "react"
-import axios from "axios"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import Menu from "../menu/menu"
+import { useNavigate } from "react-router-dom"
+import { auth } from "../configfirebase/config"
+import imagelogin from "../../image.modue/login-3305943-2757111.png"
 const Login = () => {
     const list = {
-        ussername: "",
-        password: ""
+        email: "",
+        password: "",
     }
-    const [forms, setForms] = useState(list)
-    const { ussername, password } = forms
+    const [forms, setForm] = useState(list)
+    const { email, password } = forms
     const layTT = (e) => {
         const { name, value } = e.target
-        setForms({ ...forms, [name]: value })
+        setForm({ ...forms, [name]: value })
     }
-    const hangdSubmit = (e) => {
+    const navigation=useNavigate()
+    // useEffect(()=>{
+    //     const unsubscribe=auth.onAuthStateChanged((authUser)=>{
+    //         console.log(authUser);
+    //         if (authUser) {
+    //             navigation("/")
+    //         }
+    //     })
+    //     return unsubscribe
+    // },[])
+    const hangchangSubmit = (e) => {
         e.preventDefault()
+        auth.signInWithEmailAndPassword(forms)
+            .then(
+                navigation("/")
+            )
+            .catch(err => console.log(err))
     }
     return (
-        <div className="login container-fluid col-sm-6">
-            <div className="login-form">
-                <h1 style={{
-                    textAlign: "center"
-                }}>Login</h1>
-                <form action="" method="post">
-                    <div className="form-group">
-                        <label htmlFor="">Nhập tên đăng nhập</label>
-                        <input type="text" name="ussername" value={ussername} placeholder="Vui lòng nhập tên đăng nhập" onChange={layTT} className="form-control" id="" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="">Nhập mật khẩu đăng nhập</label>
-                        <input type="text" name="password" value={password} placeholder="Vui lòng nhập mật khẩu đăng nhập" onChange={layTT} className="form-control" id="" />
-                    </div>
-                    <div className="col-sm-12" style={{
-                        textAlign:"center"
-                    }}>
-                        <input type="submit" className="btn btn-primary" value="Login" onClick={hangdSubmit} />
-                    </div>
-                </form>
+        <div className="container-fluid">
+            <div col-sm-12>
+                <Menu />
             </div>
-            <div className="login-register">
-                <p>Bạn chưa có tài khoản? <Link to={"/register"}>Đăng ký</Link></p>
+            <div className="col-sm-12" style={{ marginTop: "100px" }}>
+                <div className="register container-fluid col-sm-6" style={{
+                    alignItems: "center"
+                }}>
+                    <h1 style={{
+                        textAlign: "center",
+                        color: "red"
+                    }}>Login</h1>
+                    <div className="row">
+                        <div className="register-form col-sm-4">
+
+                            <form action="" method="post">
+                                <div className="from-group">
+                                    <label htmlFor="">Nhập email đăng ký</label>
+                                    <input type="text" className="form-control" name="email" value={email} placeholder="Vui lòng nhập email đăng ký" onChange={layTT} id="" />
+                                </div>
+                                <div className="from-group">
+                                    <label htmlFor="">Nhập mật khẩu đăng ký</label>
+                                    <input type="text" className="form-control" name="password" value={password} placeholder="Vui lòng nhập mật khẩu đăng ký" onChange={layTT} id="" />
+                                </div>
+
+                                <div className="regiter-login">
+                                    <input type="submit" value="Login" onClick={hangchangSubmit} className="btn btn-primary" />
+                                </div>
+                            </form>
+                            <div className="register-lo">
+                                <p>Bạn chưa có tài khoản!! <Link to={"/register"}>Register</Link></p>
+                            </div>
+                        </div>
+                        <div className="image-form col-sm-4">
+                            <img width={"340px"} src={imagelogin} alt="duong" />
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     )
