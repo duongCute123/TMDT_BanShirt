@@ -1,10 +1,10 @@
 import Menu from "../menu/menu"
 import HeaderIcon from "./listicon";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import slide1 from "../../image.modue/Excited-Girl-Holding-Shopping-Bag-Transparent-PNG.png"
-import slide2 from "../../image.modue/Attractive-Model-Man-PNG-Picture.png"
-import slide3 from "../../image.modue/shopping_model.png"
-import slide4 from "../../image.modue/858-8584137_fashion-forward-episodes-offers-fashion.png"
+import slide1 from "../../image.modue/photo-1499939667766-4afceb292d05.avif"
+import slide2 from "../../image.modue/photo-1511511450040-677116ff389e.avif"
+import slide3 from "../../image.modue/photo-1523381294911-8d3cead13475.avif"
+import slide4 from "../../image.modue/photo-1523381294911-8d3cead13475.avif"
 import { Button } from "@mui/material";
 import GetProduct from "../product/listproduct";
 import SlideP from "../product/slider";
@@ -23,10 +23,12 @@ const Home = () => {
         slidesToScroll: 1
     };
     return (
-        <div className="home">
-            <Menu />
-            <div className="">
-                <div className="course">
+        <div className="home container-fluid" style={{ marginTop: "60px" }}>
+            <div className="col-sm-12">
+                <Menu />
+            </div>
+            <div className="col-sm-12">
+                <div className="course" style={{ color: "black" }}>
                     <div id="course" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#course" data-slide-to="0" class="active"></li>
@@ -37,50 +39,54 @@ const Home = () => {
                         <div class="carousel-inner" role="listbox">
                             <div class="carousel-item active">
 
-                                <div class="carousel-caption">
-                                    <h3>COMFORT FASION </h3>
-                                    <p>Elevate Your Style with our brand new products, Purchase Today!</p>
+                                <div class="carousel-caption" >
+                                    <h3 style={{ color: "black" }}>COMFORT FASION </h3>
+                                    <p style={{ color: "black" }}>Elevate Your Style with our brand new products, Purchase Today!</p>
                                     <Button endIcon={<ArrowRightAltIcon />}>Shoping Now</Button>
                                 </div>
-                                <img style={{ height: "400px", objectFit: "cover" }} src={slide1} alt="First slide" />
+                                <img style={{ width: "100%", height: "400px", objectFit: "cover" }} src={slide1} alt="First slide" />
                             </div>
                             <div class="carousel-item">
 
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h3>COMFORT FASION </h3>
-                                    <p>Elevate Your Style with our brand new products, Purchase Today!</p>
+                                    <h3 style={{ color: "black" }}>COMFORT FASION </h3>
+                                    <p style={{ color: "black" }}>Elevate Your Style with our brand new products, Purchase Today!</p>
                                     <Button endIcon={<ArrowRightAltIcon />}>Shoping Now</Button>
                                 </div>
-                                <img style={{ height: "400px", objectFit: "cover" }} src={slide2} alt="Second slide" />
+                                <img style={{ width: "100%", height: "400px", objectFit: "cover" }} src={slide2} alt="Second slide" />
                             </div>
                             <div class="carousel-item">
 
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h3>COMFORT FASION </h3>
-                                    <p>Elevate Your Style with our brand new products, Purchase Today!</p>
+                                    <h3 style={{ color: "black" }}>COMFORT FASION </h3>
+                                    <p style={{ color: "black" }}>Elevate Your Style with our brand new products, Purchase Today!</p>
                                     <Button endIcon={<ArrowRightAltIcon />}>Shoping Now</Button>
                                 </div>
-                                <img style={{ height: "400px", objectFit: "cover" }} src={slide3} alt="Third slide" />
+                                <img style={{ width: "100%", height: "400px", objectFit: "cover" }} src={slide3} alt="Third slide" />
                             </div>
                             <div class="carousel-item">
 
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h3>COMFORT FASION </h3>
-                                    <p>Elevate Your Style with our brand new products, Purchase Today!</p>
+                                    <h3 style={{ color: "black" }}>COMFORT FASION </h3>
+                                    <p style={{ color: "black" }}>Elevate Your Style with our brand new products, Purchase Today!</p>
                                     <Button endIcon={<ArrowRightAltIcon />}>Shoping Now</Button>
                                 </div>
-                                <img style={{ height: "400px", objectFit: "cover" }} src={slide4} alt="Third slide" />
+                                <img style={{ width: "100%", height: "400px", objectFit: "cover" }} src={slide4} alt="Third slide" />
                             </div>
                         </div>
 
                     </div>
                 </div>
             </div>
-            <HeaderIcon />
-            <LayCoast/>
-            <GetProduct />
-            <SlideP/>
-            <Footer/>
+            <div className="col-sm-12">
+                <HeaderIcon />
+            </div>
+            <div className="col-sm-12">
+                <LayCoast />
+            </div>
+            <div className="col-sm-12">
+                <Footer />
+            </div>
         </div>
     )
 }

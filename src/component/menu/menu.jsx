@@ -5,8 +5,8 @@ import { Button } from "@mui/material";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const Menu = () => {
     return (
-        <div className="menus container-fluid">
-            <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div className="menus container-fluid" style={{color:"black",width:"100%"}}>
+            <nav class="navbar navbar-expand-sm navbar-light bg-light" style={{backgroundColor:"white"}}>
                 <img width={"40px"} src={logo} alt="" />
                 <Link class="navbar-brand" to={"/"}>FashionÂ</Link>
                 <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"

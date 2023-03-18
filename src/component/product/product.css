@@ -15,6 +15,7 @@
     outline: none;
     border: none;
     color: #000;
+    z-index: 1;
 }
 
 Link {
@@ -52,11 +53,6 @@ Link {
 .infos-product:active {
     top: 2px;
 }
-
-.footer-page {
-    
-}
-
 .action {
     border: 1px;
     justify-content: space-between;
@@ -80,5 +76,28 @@ Link {
 .menus {
     position: fixed;
     top: 0px;
-    z-index: 1;
+    z-index: 2;
+}
+img{
+    justify-content: center;
+}
+.items{
+    text-align: center;
+}
+.items:hover{
+    border: 1px solid black;
+    width: 240px;
+    text-align: center;
+    margin-top: 20px;
+    height: 200px;
+    border-radius: 5% 5% 5% 5%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+    border: none;
+    color: #000;
 }
