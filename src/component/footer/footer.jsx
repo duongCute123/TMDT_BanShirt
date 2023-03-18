@@ -1,6 +1,6 @@
 const Footer=()=>{
     return(
-        <div className="container-fluid">
+        <div className="footer">
             <div className="row" style={{borderTop:"1px",borderTopColor:"red"}}>
                 <div className="col-sm-3">
                     <h4>Web bán hàng Online</h4>

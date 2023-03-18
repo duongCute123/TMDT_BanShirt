@@ -28,13 +28,14 @@ const LayCoast = () => {
     }, [])
     console.log(data);
     return (
-        <div className="container-fluid">
-            <div className="col-sm-12">
+        
+            <div className="col-sm-12 col-xl-12">
                 <h1>Sản phẩm phổ biến</h1>
                 {
                     data.filter(list => list.loaiSp.toLowerCase().includes("coast")).map((list) => {
                         return (
                             <div className="list-product" style={{ float: "left" }}>
+                                
                                 <div className="infos-product">
                                     <Link to={"/detailproduct/" + list.id}>
                                         <img width={"234px"} height={"160px"} src={list.anh} alt={list.tenSpham} />
@@ -57,7 +58,7 @@ const LayCoast = () => {
                     })
                 }
             </div>
-        </div>
+
     )
 }
 export default LayCoast

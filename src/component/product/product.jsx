@@ -4,10 +4,14 @@ import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom';
 import axios from "axios"
 import { Button } from "@mui/material"
+import { useSelector,useDispatch } from 'react-redux';
 import Menu from '../menu/menu';
 import Footer from '../footer/footer';
+import { add_shoping_cart,xoa_cart,IncreaseQuantity,DecreaseQuantity } from '../action/shopingcart';
 const ItemProduct = () => {
     const [data, setData] = useState([])
+    const cart=useSelector(state=>state.shoping.Cart)
+    const dispatch=useDispatch()
     useEffect(() => {
         axios.get("https://633e2bdbc235b0e5751fe7a6.mockapi.io/products")
             .then(res => {
@@ -19,7 +23,7 @@ const ItemProduct = () => {
             .catch(err => {
                 console.log(err);
             })
-    })
+    },[])
     return (
         <div className="container-fluid">
             <div className='col-sm-12'>
@@ -51,7 +55,7 @@ const ItemProduct = () => {
                                         return (
                                             <div className="list-product row" style={{ float: "left" }}>
                                                 <div className="infos-product">
-                                                    <Link to={"/detailproduct/" + lists.id}>
+                                                    <Link to={"/detailpage/" + lists.id}>
                                                         <img width={"234px"} height={"160px"} src={lists.anh} alt={lists.tenSpham} />
                                                         <div className="chitiet">
                                                             <h6>{lists.tenSpham}</h6>
@@ -59,7 +63,7 @@ const ItemProduct = () => {
                                                         </div>
                                                     </Link>
                                                     <div className="action" >
-                                                        <Button variant="outlined" style={{}} startIcon={<ShoppingCartCheckoutIcon />}>
+                                                        <Button variant="outlined" onClick={()=>dispatch(add_shoping_cart(lists))} style={{}} startIcon={<ShoppingCartCheckoutIcon />}>
                                                             Add Cart
                                                         </Button>
                                                         <Button variant="contained" endIcon={<LocalMallIcon />}>
