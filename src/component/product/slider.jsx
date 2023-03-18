@@ -14,7 +14,6 @@ const SlideP = () => {
         <div className="container-fluid">
             <div className="">
                 <div className="">
-                    <h2> Single Item</h2>
                     <Slider {...settings}>
                         <div>
                             <img height={"500px"} width={"1232px"} src={slide1} alt="" />

@@ -15,7 +15,6 @@
     outline: none;
     border: none;
     color: #000;
-    z-index: 1;
 }
 
 Link {
@@ -55,10 +54,7 @@ Link {
 }
 
 .footer-page {
-    border-top: 1px solid red;
-    width: 100%;
-    position: fixed;
-    bottom: 0px;
+    
 }
 
 .action {
@@ -84,8 +80,5 @@ Link {
 .menus {
     position: fixed;
     top: 0px;
-    z-index: 2;
-}
-.shirt{
-    
+    z-index: 1;
 }
