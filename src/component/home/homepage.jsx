@@ -78,11 +78,12 @@ const Home = () => {
     };
     // style ccs nhé
     return (
-        <div className="home container-fluid" style={{ marginTop: "60px" }}>
+        <div className="home " style={{ marginTop: "60px" }}>
             <div className="">
-                <div className="">
                     <Menu />
                 </div>
+            <div className="container-fluid">
+                
                 <div className="">
                     <div className="course" style={{ color: "black" }}>
                         <div id="course" class="carousel slide" data-ride="carousel">
