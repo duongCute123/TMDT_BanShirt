@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import HeaderIcon from "../home/listicon";
 import GetProduct from "../product/listproduct";
 import ItemProduct from "../product/product";
+import CartProduct from "../cart/cartproduct";
 const Routess = () => {
     return (
         <div className="router">
@@ -29,6 +30,7 @@ const Routess = () => {
                     <Route path="/contact" element={<Contact/>}/>
                     <Route path="/product" element={<ItemProduct/>}/>
                     <Route path="/footer" element={<Footer/>}/>
+                    <Route path="/cart" element={<CartProduct/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

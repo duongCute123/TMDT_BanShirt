@@ -19,7 +19,7 @@ const ShopingCart = (state = initStance, action) => {
             else {
                 let check = false;
                 state.Cart.map((item, key) => {
-                    if (item.id = action.payload.id) {
+                    if (item.id === action.payload.id) {
                         state.Cart[key].quantity++
                         check = true
                     }
@@ -59,7 +59,7 @@ const ShopingCart = (state = initStance, action) => {
             }
 
         case "DELETE_CART":
-            let quantity_ = state.Carts[action.payload].quantity;
+            let quantity_ = state.Cart[action.payload].quantity;
             return {
                 ...state,
                 numberCart: state.numberCart - quantity_,

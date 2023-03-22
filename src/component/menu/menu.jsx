@@ -3,7 +3,14 @@ import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantity
 import logo from "../../image.modue/logo.c9a5149df70e30a9c7cd.png"
 import { Button } from "@mui/material";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 const Menu = () => {
+    const navigation=useNavigate()
+    const Carts=()=>{
+        navigation('/cart')
+    }
+    const [isLogin,setIsLogin]=useState(false)
     return (
         <div className="menus " style={{color:"black",width:"100%"}}>
             <nav class="navbar navbar-expand-sm navbar-light bg-light" style={{backgroundColor:"white"}}>
@@ -26,7 +33,7 @@ const Menu = () => {
                         </li>
                     </ul>
                     <div className="store">
-                        <Button startIcon={<ProductionQuantityLimitsIcon />}>ShopingCart</Button>
+                        <Button onClick={Carts} startIcon={<ProductionQuantityLimitsIcon />}>ShopingCart</Button>
                     </div>
                     <div className="login">
                         <Button startIcon={<AccountCircleIcon />}>
