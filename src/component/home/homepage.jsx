@@ -20,9 +20,14 @@ import LayCoast from "../product/coast";
 import LayVay from "../product/vay";
 import Footer from "../footer/footer";
 import Customer from "./customer";
-
+import EastIcon from '@mui/icons-material/East';
+import KeyboardControlKeyIcon from '@mui/icons-material/KeyboardControlKey';
 const Home = () => {
     const [data, setData] = useState([])
+    useEffect(() => {
+        // 👇️ scroll to top on page load
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }, []);
     useEffect(() => {
         axios.get("https://633e2bdbc235b0e5751fe7a6.mockapi.io/products")
             .then(res => {
@@ -162,6 +167,7 @@ const Home = () => {
                             })
                         }
                     </Slider>
+                    <Link  to={"/product"}>See more</Link>
                 </div>
 
                 <SlideP />
@@ -226,6 +232,22 @@ const Home = () => {
                     </Slider>
                 </div>
                 <Footer />
+                <div onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                }}
+                    style={{
+                        position: 'fixed',
+                        padding: '1rem 2rem',
+                        fontSize: '20px',
+                        bottom: '40px',
+                        right: '40px',
+                        borderRadius:"50%",
+                        backgroundColor: '#0C9',
+                        color: '#fff',
+                        textAlign: 'center',
+                    }}>
+                        <KeyboardControlKeyIcon/>
+                </div>
 
             </div>
         </div>
