@@ -53,6 +53,7 @@ Link {
 .infos-product:active {
     top: 2px;
 }
+
 .action {
     border: 1px;
     justify-content: space-between;
@@ -78,13 +79,16 @@ Link {
     top: 0px;
     z-index: 2;
 }
-img{
+
+img {
     justify-content: center;
 }
-.items{
+
+.items {
     text-align: center;
 }
-.items:hover{
+
+.items:hover {
     border: 1px solid black;
     width: 240px;
     text-align: center;
@@ -101,6 +105,31 @@ img{
     border: none;
     color: #000;
 }
-.detailpage{
+
+.detailpage {
     margin-top: 65px;
+}
+
+.slick-coast {
+    border-radius: 10px 10px 10px 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.slick-coast:hover {
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 5% 5% 5% 5%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+    border: none;
+    color: #000;
+}
+img{
+    opacity: 1;
 }

@@ -28,8 +28,8 @@ const LayShirt = () => {
     }, [])
     console.log(data);
     return (
-        <div className="container-fluid">
-            <div className="col-sm-12">
+        <div className="shirt">
+            <div className="">
                 <h1>Ưu đãi lớn</h1>
                 <div data-aos="fade-right">
                     <div className="homepage">

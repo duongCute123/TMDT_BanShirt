@@ -12,6 +12,8 @@ import slide1 from "../../image.modue/photo-1499939667766-4afceb292d05.avif"
 import slide2 from "../../image.modue/photo-1511511450040-677116ff389e.avif"
 import slide3 from "../../image.modue/photo-1523381294911-8d3cead13475.avif"
 import Slider from "react-slick"
+import Footer from "../footer/footer";
+import SlideP from "./slider";
 const LayCoast = () => {
     const [data, setData] = useState([])
     useEffect(() => {
@@ -28,37 +30,37 @@ const LayCoast = () => {
     }, [])
     console.log(data);
     return (
-        
-            <div className="col-sm-12 col-xl-12">
-                <h1>Sản phẩm phổ biến</h1>
-                {
-                    data.filter(list => list.loaiSp.toLowerCase().includes("coast")).map((list) => {
-                        return (
-                            <div className="list-product" style={{ float: "left" }}>
-                                
-                                <div className="infos-product">
-                                    <Link to={"/detailproduct/" + list.id}>
-                                        <img width={"234px"} height={"160px"} src={list.anh} alt={list.tenSpham} />
-                                        <div className="chitiet">
-                                            <h6>{list.tenSpham}</h6>
-                                            <p>Gia:${list.giaSpham}</p>
-                                        </div>
-                                    </Link>
-                                    <div className="action" >
-                                        <Button variant="outlined" style={{}} startIcon={<ShoppingCartCheckoutIcon />}>
-                                            Add Cart
-                                        </Button>
-                                        <Button variant="contained" endIcon={<LocalMallIcon />}>
-                                            Buy
-                                        </Button>
+        <div className="coast-page">
+            <h1>Sản phẩm phổ biến</h1>
+            {
+                data.filter(list => list.loaiSp.toLowerCase().includes("coast")).map((list) => {
+                    return (
+                        <div className="">
+                            <h2>Image Gallery</h2>
+                            <p>The .thumbnail class can be used to display an image gallery.</p>
+                            <p>The .caption class adds proper padding and a dark grey color to text inside thumbnails.</p>
+                            <p>Click on the images to enlarge them.</p>
+                            <div class="row" style={{
+                                float:"left"
+                            }}>
+                                <div class="col-md-4">
+                                    <div class="thumbnail" >
+                                        <a href="/w3images/lights.jpg" target="_blank">
+                                            <img width={"200px"} height={"180px"} src={list.anh} alt="" />
+                                            <div class="caption">
+                                                <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    })
-                }
-            </div>
 
+
+                            </div>
+                        </div>
+                    )
+                })
+            }
+        </div>
     )
 }
 export default LayCoast

@@ -1,11 +1,18 @@
 import Menu from "../menu/menu"
 import HeaderIcon from "./listicon";
+import { useEffect, useState } from "react"
+import { add_shoping_cart, xoa_cart, IncreaseQuantity, DecreaseQuantity } from '../action/shopingcart';
+import { Link } from 'react-router-dom';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
+import axios from "axios"
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import slide1 from "../../image.modue/photo-1499939667766-4afceb292d05.avif"
 import slide2 from "../../image.modue/photo-1511511450040-677116ff389e.avif"
 import slide3 from "../../image.modue/photo-1523381294911-8d3cead13475.avif"
 import slide4 from "../../image.modue/photo-1523381294911-8d3cead13475.avif"
 import { Button } from "@mui/material";
+import { useSelector, useDispatch } from 'react-redux';
 import GetProduct from "../product/listproduct";
 import SlideP from "../product/slider";
 import Slider from "react-slick";
@@ -15,20 +22,63 @@ import Footer from "../footer/footer";
 import Customer from "./customer";
 
 const Home = () => {
-    const settings = {
+    const [data, setData] = useState([])
+    useEffect(() => {
+        axios.get("https://633e2bdbc235b0e5751fe7a6.mockapi.io/products")
+            .then(res => {
+                setData(res.data)
+            })
+            .then(res => {
+                console.log("Lấy dữ liệu thanh công");
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, [])
+    const cart = useSelector(state => state.shoping.Cart)
+    const dispatch = useDispatch()
+    var settings = {
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        initialSlide: 0,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     };
+    // style ccs nhé
     return (
         <div className="home container-fluid" style={{ marginTop: "60px" }}>
-            <div className="col-sm-12">
-                <div className="col-sm-12">
+            <div className="">
+                <div className="">
                     <Menu />
                 </div>
-                <div className="col-sm-12">
+                <div className="">
                     <div className="course" style={{ color: "black" }}>
                         <div id="course" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
@@ -79,15 +129,104 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-sm-12">
-                    <HeaderIcon />
+
+                <HeaderIcon />
+
+
+                <div>
+                    <h2> Hot Sell </h2>
+                    <Slider {...settings}>
+                        {
+                            data.filter(list => list.loaiSp.toLowerCase().includes("coast")).map((lists) => {
+                                return (
+                                    <div data-aos="flip-left">
+                                        <div className="slick-coast">
+                                            <Link to={"/detailpage/" + lists.id}>
+                                                <img width={"310px"} height={"180px"} src={lists.anh} alt={lists.tenSpham} />
+                                                <div className="chitiet">
+                                                    <h6>{lists.tenSpham}</h6>
+                                                    <p>Gia:${lists.giaSpham}</p>
+                                                </div>
+                                            </Link>
+                                            <div className="action" >
+                                                <Button variant="outlined" onClick={() => dispatch(add_shoping_cart(lists))} style={{}} startIcon={<ShoppingCartCheckoutIcon />}>
+                                                    Add Cart
+                                                </Button>
+                                                <Button variant="contained" endIcon={<LocalMallIcon />}>
+                                                    Buy
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </Slider>
                 </div>
-                <div className="col-sm-12">
-                    <LayCoast />
+
+                <SlideP />
+                <div>
+                    <h2> Product Girl </h2>
+                    <Slider {...settings}>
+                        {
+                            data.filter(list => list.loaiSp.toLowerCase().includes("dress")).map((lists) => {
+                                return (
+                                    <div data-aos="flip-left">
+                                        <div className="slick-coast">
+                                            <Link to={"/detailpage/" + lists.id}>
+                                                <img width={"310px"} height={"180px"} src={lists.anh} alt={lists.tenSpham} />
+                                                <div className="chitiet">
+                                                    <h6>{lists.tenSpham}</h6>
+                                                    <p>Gia:${lists.giaSpham}</p>
+                                                </div>
+                                            </Link>
+                                            <div className="action" >
+                                                <Button variant="outlined" onClick={() => dispatch(add_shoping_cart(lists))} style={{}} startIcon={<ShoppingCartCheckoutIcon />}>
+                                                    Add Cart
+                                                </Button>
+                                                <Button variant="contained" endIcon={<LocalMallIcon />}>
+                                                    Buy
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </Slider>
                 </div>
-                <div className="col-sm-12 col-xl-12">
-                    <Footer />
+                <div>
+                    <h2> Product Shirt </h2>
+                    <Slider {...settings}>
+                        {
+                            data.filter(list => list.loaiSp.toLowerCase().includes("shirt")).map((lists) => {
+                                return (
+                                    <div data-aos="flip-left">
+                                        <div className="slick-coast">
+                                            <Link to={"/detailpage/" + lists.id}>
+                                                <img width={"310px"} height={"180px"} src={lists.anh} alt={lists.tenSpham} />
+                                                <div className="chitiet">
+                                                    <h6>{lists.tenSpham}</h6>
+                                                    <p>Gia:${lists.giaSpham}</p>
+                                                </div>
+                                            </Link>
+                                            <div className="action" >
+                                                <Button variant="outlined" onClick={() => dispatch(add_shoping_cart(lists))} style={{}} startIcon={<ShoppingCartCheckoutIcon />}>
+                                                    Add Cart
+                                                </Button>
+                                                <Button variant="contained" endIcon={<LocalMallIcon />}>
+                                                    Buy
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </Slider>
                 </div>
+                <Footer />
+
             </div>
         </div>
     )
