@@ -21,12 +21,12 @@ const Register = () => {
         .catch((error) => alert(error.message));
     }
     return (
-        <div className="container-fluid">
+        <div className="">
             <div col-sm-12>
                 <Menu />
             </div>
             <div className="col-sm-12" style={{marginTop:"100px"}}>
-                <div className="register container-fluid col-sm-6" style={{
+                <div className="register container-fluid col-sm-7" style={{
                     alignItems: "center"
                 }}>
                     <h1 style={{
