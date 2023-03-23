@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import Menu from "../menu/menu"
 import { useNavigate } from "react-router-dom"
 import { auth } from "../configfirebase/config"
+import PropTypes from "prop-types"
 import imagelogin from "../../image.modue/login-3305943-2757111.png"
 const Login = () => {
     const list = {
@@ -27,12 +28,30 @@ const Login = () => {
     // },[])
     const hangchangSubmit = (e) => {
         e.preventDefault()
-        auth.signInWithEmailAndPassword(forms)
-            .then(
-                navigation("/")
-            )
-            .catch(err => console.log(err))
+        localStorage.setItem("user", JSON.stringify(forms))
+        if (password === "") {
+            alert("vui lòng nhập mật khẩu")
+        }
+        if (email === "") {
+            alert("vui lòng nhập email")
+        }
+        if (forms != "") {
+            auth.signInWithEmailAndPassword(forms)
+                // .then(
+                //     navigation("/")
+                // )
+                .catch(err => console.log(err))
+        }
     }
+    useEffect(() => {
+        const token = localStorage.getItem("user");
+        console.log(token);
+        if (token) {
+            return navigation('/')
+        } else {
+            return navigation('/login')
+        }
+    },[])
     return (
         <div className="">
             <div col-sm-12>

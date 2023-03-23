@@ -11,6 +11,7 @@ import { add_shoping_cart, xoa_cart, IncreaseQuantity, DecreaseQuantity } from '
 const ItemProduct = () => {
     const [data, setData] = useState([])
     const cart = useSelector(state => state.shoping.Cart)
+    const [datas,setDataS]=useState([])
     const dispatch = useDispatch()
     useEffect(() => {
         axios.get("https://633e2bdbc235b0e5751fe7a6.mockapi.io/products")
@@ -24,6 +25,9 @@ const ItemProduct = () => {
                 console.log(err);
             })
     }, [])
+    const getproduct=()=>{
+        
+    }
     return (
         <div className="">
             <div className='col-sm-12'>
@@ -49,13 +53,13 @@ const ItemProduct = () => {
                             </div>
                         </div>
                         <div className="col-sm-8">
-                            <div data-aos="fade-right">
+                            <div>
                                 <div className="homepage">
                                     {
                                         data.map((lists) => {
                                             return (
                                                 <div className="list-product row" style={{ float: "left" }}>
-                                                    <div className="infos-product">
+                                                    <div className="infos-product" data-aos="fade-right">
                                                         <Link to={"/detailpage/" + lists.id}>
                                                             <img width={"234px"} height={"160px"} src={lists.anh} alt={lists.tenSpham} />
                                                             <div className="chitiet">

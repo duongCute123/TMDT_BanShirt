@@ -95,7 +95,6 @@ const Home = () => {
                             </ol>
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active">
-
                                     <div class="carousel-caption" >
                                         <h3 style={{ color: "black" }}>COMFORT FASION </h3>
                                         <p style={{ color: "black" }}>Elevate Your Style with our brand new products, Purchase Today!</p>
@@ -168,7 +167,6 @@ const Home = () => {
                             })
                         }
                     </Slider>
-                    <Link  to={"/product"}>See more</Link>
                 </div>
 
                 <SlideP />

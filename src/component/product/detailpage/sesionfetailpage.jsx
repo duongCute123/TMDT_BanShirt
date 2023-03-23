@@ -3,8 +3,12 @@ import { Button } from "@mui/material"
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
+import {add_shoping_cart,xoa_cart,IncreaseQuantity,DecreaseQuantity} from "../../action/shopingcart"
+import { useSelector,useDispatch } from "react-redux";
 const InfoProduct = (props) => {
     const [product, setProduct] = useState([])
+    const productcart=useSelector(state=>state.shoping.Cart)
+    const dispatch=useDispatch()
     useEffect(() => {
         setProduct(props.detail)
     }, [props.detail])
@@ -21,7 +25,9 @@ const InfoProduct = (props) => {
                         <p>{nhaSX}</p>
                         <h4>{tenSpham}</h4>
                         <p style={{alignItems:"center"}}><CurrencyBitcoinIcon/>{giaSpham}</p>
-                        <Button>Add Cart</Button>
+                        <Button style={{
+                            marginBottom:"4px"
+                        }} startIcon={<ShoppingCartCheckoutIcon/>} onClick={()=>dispatch(add_shoping_cart(product))}>Add Cart</Button>
                        
                         <ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
                             <li class="nav-item" role="presentation">

@@ -12,9 +12,11 @@ import DetailPage from "../product/detailproduct";
 import { BrowserRouter, Route, Routes, NavLink, Link } from "react-router-dom";
 import { useEffect } from "react";
 import HeaderIcon from "../home/listicon";
+import React from "react";
 import GetProduct from "../product/listproduct";
 import ItemProduct from "../product/product";
 import CartProduct from "../cart/cartproduct";
+import Seach from "../product/seach";
 const Routess = () => {
     return (
         <div className="router">
@@ -31,6 +33,7 @@ const Routess = () => {
                     <Route path="/product" element={<ItemProduct/>}/>
                     <Route path="/footer" element={<Footer/>}/>
                     <Route path="/cart" element={<CartProduct/>}/>
+                    <Route path="/search" element={<Seach/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
