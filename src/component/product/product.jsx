@@ -10,6 +10,7 @@ import Footer from '../footer/footer';
 import { add_shoping_cart, xoa_cart, IncreaseQuantity, DecreaseQuantity } from '../action/shopingcart';
 const ItemProduct = () => {
     const [data, setData] = useState([])
+    const [query, setQuery] = useState('')
     const cart = useSelector(state => state.shoping.Cart)
     const [datas,setDataS]=useState([])
     const dispatch = useDispatch()
@@ -25,8 +26,17 @@ const ItemProduct = () => {
                 console.log(err);
             })
     }, [])
-    const getproduct=()=>{
-        
+    const getall=()=>{
+        setQuery("")
+    }
+    const getshirt=()=>{
+        setQuery("shirt")
+    }
+    const getcoast=()=>{
+        setQuery("coast")
+    }
+    const getdress=()=>{
+        setQuery("dress")
     }
     return (
         <div className="">
@@ -39,16 +49,16 @@ const ItemProduct = () => {
                         <div className="col-sm-4" style={{ border: "1px" }}>
                             <div className='menu-list'>
                                 <div className="">
-                                    <Button>All Product</Button>
+                                    <Button onClick={getall}>All Product</Button>
                                 </div>
                                 <div>
-                                    <Button>All Shirt</Button>
+                                    <Button onClick={getshirt}>All Shirt</Button>
                                 </div>
                                 <div>
-                                    <Button>All Coast</Button>
+                                    <Button onClick={getcoast}>All Coast</Button>
                                 </div>
                                 <div>
-                                    <Button>All Dress</Button>
+                                    <Button onClick={getdress}>All Dress</Button>
                                 </div>
                             </div>
                         </div>
@@ -56,7 +66,7 @@ const ItemProduct = () => {
                             <div>
                                 <div className="homepage">
                                     {
-                                        data.map((lists) => {
+                                        data.filter(list=>list.loaiSp.toLowerCase().includes(query||"")).map((lists) => {
                                             return (
                                                 <div className="list-product row" style={{ float: "left" }}>
                                                     <div className="infos-product" data-aos="fade-right">

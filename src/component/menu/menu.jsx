@@ -13,6 +13,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Navigate } from "react-router-dom";
 import Login from "../auth/login"
 import axios from "axios";
+import ItemProduct from "../product/product";
 const Menu = () => {
     const navigation = useNavigate()
     const Carts = () => {
@@ -24,12 +25,15 @@ const Menu = () => {
     const [show, setShow] = useState(false)
     const [search, setShearch] = useState()
     const [data, setData] = useState([])
+    const [ketqua,setKetQua]=useState([])
     const [inputText, setInputText] = useState("");
     let inputHandler = (e) => {
         //convert input text to lower case
         var lowerCase = e.target.value.toLowerCase();
         setInputText(lowerCase);
     };
+    const user = localStorage.getItem("user")
+    console.log(user);
     useEffect(() => {
         const user = localStorage.getItem("user")
         if (localStorage.getItem("user") != null) {
@@ -47,11 +51,25 @@ const Menu = () => {
                 console.log(err);
             })
     }, [])
-    const User = ({ users }) => {
-        const item = users.map((list) => <p>{list.email}</p>)
-        return <p>{item}</p>
+    const User = ({ users:{email} }) => {
+        return(
+            <div>
+                <p>{email}</p>
+            </div>
+        )
+    }
+    const Users = ({ userss }) => {
+        const item = userss.map((list) =><User users={list}/>)
+        return <div>{item}</div>
     }
     console.log(search);
+    const timkiem = () => {
+        const kq = data.filter(list => list.tenSpham.toLowerCase().includes(search)).map((lists) => (
+            console.log(lists)
+        ))
+
+    }
+   
     return (
         <div className="menus " style={{ color: "black", width: "100%", backgroundColor: "white" }}>
             <nav class="navbar navbar-expand-sm navbar-light bg-light" style={{ backgroundColor: "white" }}>
@@ -79,7 +97,7 @@ const Menu = () => {
                     }}>
                         <input type="text" name="seacrch" placeholder="Nhập tên sản phẩm muốn tìm" value={search} onChange={(e) => setShearch(e.target.value)} className="form-control" style={{ width: "250px" }} />
                         <div>
-                            <Button onClick={(e)=>e} startIcon={<SearchIcon />}>Search</Button>
+                            <Button onClick={timkiem} startIcon={<SearchIcon />}>Search</Button>
                         </div>
                     </div>
                     <div className="store">
@@ -88,7 +106,7 @@ const Menu = () => {
                     <div className="dropdown">
                         <Button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" startIcon={<AccountCircleIcon />}
 
-                        >{isLogin ? 'Login' : `hello ${<User users={emails} />}`}</Button>
+                        >{isLogin ? 'Login' : `hello ${user.email}`}</Button>
 
                         <ul class="dropdown-menu">
                             <Button startIcon={<PersonAddAltIcon />}>Profile</Button>
@@ -104,6 +122,7 @@ const Menu = () => {
                     </div>
                 </div>
             </nav >
+            
         </div >
     )
 }

@@ -78,6 +78,7 @@ Link {
     position: fixed;
     top: 0px;
     z-index: 2;
+    
 }
 
 img {
@@ -139,3 +140,37 @@ img{
 body{
     background-color: rgb(248,248,248);
 }
+@media  screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+    .menu-list {
+        margin: 10px;
+        border-radius: 20px 20px 20px 20px;
+        display: flex;
+        margin-top: 70px;
+        margin-bottom: 10px;
+        width: 300px;
+        height: auto;
+        z-index: 1;
+    }
+    .infos-product {
+        border: 1px solid black;
+        width: 240px;
+        text-align: center;
+        margin-top: 130px;
+        height: 300px;
+        margin-left: 50px;
+        border-radius: 5% 5% 5% 5%;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+            7px 7px 20px 0px rgba(0, 0, 0, .1),
+            4px 4px 5px 0px rgba(0, 0, 0, .1);
+        outline: none;
+        border: none;
+        color: #000;
+        z-index: 1;
+    }
+  }
