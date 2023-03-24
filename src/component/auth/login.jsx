@@ -35,11 +35,11 @@ const Login = () => {
         if (email === "") {
             alert("vui lòng nhập email")
         }
-        if (forms != "") {
+        if (password != ""&& email!="") {
             auth.signInWithEmailAndPassword(forms)
-                // .then(
-                //     navigation("/")
-                // )
+                .then(
+                    navigation("/")
+                )
                 .catch(err => console.log(err))
         }
     }
