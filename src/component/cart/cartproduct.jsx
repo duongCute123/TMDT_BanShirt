@@ -1,12 +1,29 @@
 import { add_shoping_cart, xoa_cart, IncreaseQuantity, DecreaseQuantity } from "../action/shopingcart"
 import { Button } from "@mui/material"
 import Menu from "../menu/menu"
+import { Link, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
+import { useEffect, useState } from "react"
 const CartProduct = () => {
+    const navigation=useNavigate()
     const items = useSelector(state => state.shoping.Cart)
     const number=useSelector(state=>state.shoping.numberCart)
-    console.log(number);
+    const [isproduct,setIsproduct]=useState(false)
     const dispatch = useDispatch()
+    const ThongBao=()=>{
+        return(
+            <div className="thongbao" style={{
+                marginTop:"60px"
+            }}>
+                <p>Bạn chưa mua sản phẩm nào?<Link to={"/product"}>Mua ngay</Link></p>
+            </div>
+        )
+    }
+    useEffect(()=>{
+        if (number!=0) {
+            setIsproduct(true)
+        }
+    })
     const Cart = ({ product: { anh, giaSpham, id, quantity, tenSpham } }) => {
         return (
             <div>
@@ -62,7 +79,12 @@ const CartProduct = () => {
     return (
         <div className="shoping-cart">
             <Menu />
-            <ListCart items={items}/>
+            {
+                isproduct?<ListCart items={items}/>:<ThongBao/>
+            }
+            <div>
+                {isproduct?<Button onClick={()=>navigation("/checkout")}>Check Out</Button>:""}
+            </div>
         </div>
     )
 }

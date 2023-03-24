@@ -26,7 +26,6 @@ const LayVay = () => {
                 console.log(err);
             })
     }, [])
-    console.log(data);
     return (
         <div className="container-fluid">
             <h1>Sản phẩm yêu thích</h1>

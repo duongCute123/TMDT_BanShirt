@@ -12,7 +12,6 @@ const InfoProduct = (props) => {
     useEffect(() => {
         setProduct(props.detail)
     }, [props.detail])
-    console.log(product);
     const OneProduct = ({ oneproduct: { id, tenSpham, giaSpham, thongTin, nhaSX, soLuong, loaiSp, anh } }) => {
         return (
             <div className="container-fluid">

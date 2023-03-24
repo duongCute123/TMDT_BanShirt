@@ -58,7 +58,6 @@ const DetailPage = (props) => {
         axios.get('https://633e2bdbc235b0e5751fe7a6.mockapi.io/products/' + id)
             .then(res => {
                 setProduct(res.data)
-                console.log(res.data);
             })
             .catch(err => console.log(err))
     }, [])

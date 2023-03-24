@@ -28,7 +28,6 @@ const LayCoast = () => {
                 console.log(err);
             })
     }, [])
-    console.log(data);
     return (
         <div className="coast-page">
             <h1>Sản phẩm phổ biến</h1>

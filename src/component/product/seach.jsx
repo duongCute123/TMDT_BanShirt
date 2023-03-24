@@ -1,14 +1,12 @@
-const Seach = ({product,query}) => {
+const InfoSearch = ({product}) => {
     return (
         <div className="">
             <h1>Danh sach san pham tim kiem</h1>
             {
-                product.filter(list => list.tenSpham.toLowerCase().includes(query)).map((list)=>(
-                    <li>{list.tenSpham}</li>
-                ))
+                console.log(product)
             }
         </div>
         
     )
 }
-export default Seach
+export default InfoSearch

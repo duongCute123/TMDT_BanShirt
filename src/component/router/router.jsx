@@ -16,7 +16,8 @@ import React from "react";
 import GetProduct from "../product/listproduct";
 import ItemProduct from "../product/product";
 import CartProduct from "../cart/cartproduct";
-import Seach from "../product/seach";
+import InfoSearch from "../product/seach";
+import CheckOut from "../cart/checkout";
 const Routess = () => {
     return (
         <div className="router">
@@ -33,7 +34,8 @@ const Routess = () => {
                     <Route path="/product" element={<ItemProduct/>}/>
                     <Route path="/footer" element={<Footer/>}/>
                     <Route path="/cart" element={<CartProduct/>}/>
-                    <Route path="/search" element={<Seach/>}/>
+                    <Route path="/search" element={<InfoSearch/>}/>
+                    <Route path="/checkout" element={<CheckOut/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
