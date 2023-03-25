@@ -1,7 +1,6 @@
 const initStance = {
     numberCart: 0,
-    Cart: [
-    ]
+    Cart:[]
 }
 const ShopingCart = (state = initStance, action) => {
     switch (action.type) {
@@ -14,7 +13,10 @@ const ShopingCart = (state = initStance, action) => {
                     anh: action.payload.anh,
                     giaSpham: action.payload.giaSpham
                 }
+                
+                
                 state.Cart.push(cart)
+                
             }
             else {
                 let check = false;
@@ -35,6 +37,7 @@ const ShopingCart = (state = initStance, action) => {
                     state.Cart.push(cart)
                 }
             }
+            localStorage.setItem("items",JSON.stringify(state.Cart))
             console.log(state.Cart);
             return {
                 ...state,

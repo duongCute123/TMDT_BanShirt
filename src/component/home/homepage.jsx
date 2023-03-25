@@ -3,6 +3,7 @@ import HeaderIcon from "./listicon";
 import { useEffect, useState } from "react"
 import { add_shoping_cart, xoa_cart, IncreaseQuantity, DecreaseQuantity } from '../action/shopingcart';
 import { Link } from 'react-router-dom';
+import anhcart from "../../image.modue/cart.da5779d4cd64df61357e.png"
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import axios from "axios"
@@ -24,6 +25,7 @@ import EastIcon from '@mui/icons-material/East';
 import KeyboardControlKeyIcon from '@mui/icons-material/KeyboardControlKey';
 const Home = () => {
     const [data, setData] = useState([])
+    const numbercard = useSelector(state => state.shoping.numberCart)
     useEffect(() => {
         // 👇️ scroll to top on page load
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -80,10 +82,16 @@ const Home = () => {
     return (
         <div className="home " style={{ marginTop: "60px" }}>
             <div className="">
-                    <Menu />
-                </div>
+                <Menu />
+            </div>
+            <div className="carts-store">
+                <Link to={"/cart"}>
+                    <img style={{ width: "70px" }} src={anhcart} alt="" />
+                    <span>{numbercard}</span>
+                </Link>
+            </div>
             <div className="container-fluid">
-                
+
                 <div className="">
                     <div className="course" style={{ color: "black" }}>
                         <div id="course" class="carousel slide" data-ride="carousel">
@@ -240,12 +248,12 @@ const Home = () => {
                         fontSize: '20px',
                         bottom: '40px',
                         right: '40px',
-                        borderRadius:"50%",
+                        borderRadius: "50%",
                         backgroundColor: '#0C9',
                         color: '#fff',
                         textAlign: 'center',
                     }}>
-                        <KeyboardControlKeyIcon/>
+                    <KeyboardControlKeyIcon />
                 </div>
 
             </div>

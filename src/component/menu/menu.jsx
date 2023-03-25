@@ -28,7 +28,7 @@ const Menu = () => {
     const [isLogin, setIsLogin] = useState(true)
     const [emails, setEmail] = useState([])
     const [show, setShow] = useState(false)
-    
+    const [local, setLocal] = useState([])
     const [data, setData] = useState([])
     const [ketqua, setKetQua] = useState([])
     const [inputText, setInputText] = useState("");
@@ -37,7 +37,8 @@ const Menu = () => {
         var lowerCase = e.target.value.toLowerCase();
         setInputText(lowerCase);
     };
-    const user = localStorage.getItem("user")
+    const user = JSON.parse(localStorage.getItem("user"))
+    const array = Object.values(user||"").slice(0,1)
     const dispatch = useDispatch()
     useEffect(() => {
         const user = localStorage.getItem("user")
@@ -115,7 +116,7 @@ const Menu = () => {
                     <div className="dropdown">
                         <Button className="btn btn-primary dropdown-toggle" data-toggle="dropdown" onClick={btn_login} startIcon={<AccountCircleIcon />}
 
-                        >{isLogin ? 'Login' : `hello ${user}`}</Button>
+                        >{isLogin ? 'Login' : `hello ${array}`}</Button>
 
                         <ul className="dropdown-menu">
                             <Button startIcon={<PersonAddAltIcon />}>Profile</Button>

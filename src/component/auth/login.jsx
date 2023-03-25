@@ -76,7 +76,7 @@ const Login = () => {
                                     </div>
                                     <div className="from-group">
                                         <label htmlFor="">Nhập mật khẩu đăng ký</label>
-                                        <input type="text" className="form-control" name="password" value={password} placeholder="Vui lòng nhập mật khẩu đăng ký" onChange={layTT} id="" />
+                                        <input type="password" className="form-control" name="password" value={password} placeholder="Vui lòng nhập mật khẩu đăng ký" onChange={layTT} id="" />
                                     </div>
 
                                     <div className="regiter-login">
